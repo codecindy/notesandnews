@@ -48,9 +48,7 @@ $(document).ready(function() {
             content.articles.push(
               {title: i.display_title,
               topic: i.channel_label,
-              impressions: i.shares.total,
-              url: i.link,
-              description: i.excerpt}
+              url: i.link}
               )
           })
         formatTemplate(content);
