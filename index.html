@@ -1,0 +1,109 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>notes & news</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Bootstrap JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse nav">
+    <div class="container-fluid">
+      <div class="navbar-header text-danger">
+        <h1 class="nav__title">notes & news</h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="panel-group">
+      <div class="panel panel-danger">
+        <div class="panel-heading">write a note to yourself</div>
+        <div class="panel-body">
+          <form action="" id="message-form">
+            <div class="form-group">
+              <label>note to self:</label>
+              <textarea id="message" type="text" class="form-control"></textarea>
+            </div>
+            <button class="btn btn-default">remember this!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">notes to remember</div>
+        <div class="panel-body">
+          <ul class="message-board">
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel panel-news">
+        <div id="Mashable" class="panel-heading"><a href="#">new articles from mashable</a></div>
+        <div class="panel-body">
+          <section id="main" class="container">
+                    
+          </section>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <!-- ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+  <!-- handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+
+    <script id="message-template" type="text/x-handlebars-template">
+      <li class="message" data-id="{{ objectId }}" data-upvotes={{upVotes}}>
+        <span class="message__text">{{ text }}</span>
+        <i class="fa fa-times pull-right delete"></i>
+<!--         <i class="fa fa-check pull-right strike-through"></i> -->
+        <i class="fa fa-refresh pull-right vote-up"></i>
+        <div class="pull-right vote-count">{{ upVotes }}</div>
+      </li>
+    </script>
+
+    <script id="article-template" type="text/x-handlebars-template">
+    {{#each articles}}
+      <article class="article">
+        <section class="articleContent">
+            {{topic}} : <a href="#"><h5>{{title}}</h3></a>
+        </section>
+        <div class="clearfix"></div>
+      </article>
+      {{/each}}
+    </script>
+
+
+  <!-- Parse CDN -->
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="client.js"></script>
+  <!-- js -->
+  <script src="app.js"></script>
+
+</body>
+
+</html>
