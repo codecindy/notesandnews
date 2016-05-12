@@ -62,10 +62,17 @@ $(document).ready(function() {
         updateVote($this.closest('.message'));
       } else if ($this.hasClass('delete')) {
         removePost($this.closest('.message'));
+      // } else if ($this.hasClass('strike-through')) {
+      //   markAsDone($this.closest('.message'));
       } else {
         console.error('IDK');
       }
     });
+
+    // function markAsDone($messageEl) {
+    //   var messageId = $messageEl.data('id');
+      
+    // }
 
     function removePost($messageEl) {
       var messageId = $messageEl.data('id');
@@ -123,9 +130,6 @@ $(document).ready(function() {
   }
 
   var content = {articles: []}
-
-
-
   var testContent = {articles: [
   {  
     image: "#",
